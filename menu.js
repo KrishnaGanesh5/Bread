@@ -176,7 +176,8 @@ document.addEventListener('DOMContentLoaded',() => {
             dis = "flex";
         }
         let ordr = document.querySelector('.orderpage');
-        let empty = document.querySelector('.empty');
+        let empty;
+        if(page=="cart")empty = document.querySelector('.empty');
         let search = document.querySelector('.search input');
         let searchdiv = document.querySelector(".searchdiv");
         search.addEventListener('input',()=>{
@@ -186,7 +187,7 @@ document.addEventListener('DOMContentLoaded',() => {
                 searchdiv.innerHTML = '';
                 searchdiv.style.display = "grid";
                 main.style.display = "none";
-                empty.style.display = "none";
+                if(page == "cart")empty.style.display = "none";
                 ordr.style.display = "none";
                 for(let sect in data){
                     for(let catg in data[sect]){
